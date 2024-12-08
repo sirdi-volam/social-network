@@ -1,0 +1,18 @@
+// Другие переменные
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+// Определение переменных
+
+$font-family: 'Roboto', sans-serif;
+$font-family-cursive: 'Noto Sans', cursive;
+$bg-color: rgb(24, 24, 24) !default;
+$aside-bg-color: rgb(32, 32, 32) !default;
+$text-color: rgb(255, 255, 255) !default;
+$text-color-gray: rgba(255, 255, 255, 0.4) !default;
+
+$width1280: 1280px !default;
+$width760: 760px !default;
+$width480: 480px !default;
+$aside-width: 165px !default;

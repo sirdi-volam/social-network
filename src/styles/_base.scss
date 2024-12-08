@@ -1,0 +1,81 @@
+@use '../styles/variables' as vars;
+// Базовые стили
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background: rgb(24, 24, 24);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(66, 66, 66);
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(24, 24, 24);
+}
+
+::-webkit-scrollbar-button {
+  background: rgb(24, 24, 24);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgb(24, 24, 24);
+}
+
+::-webkit-resizer {
+  background: rgb(24, 24, 24);
+}
+
+::-webkit-scrollbar-track-piece {
+  background: rgb(24, 24, 24);
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background: rgb(66, 66, 66);
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: rgb(66, 66, 66);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgb(66, 66, 66);
+}
+
+font {
+  font-family: vars.$font-family;
+}
+
+@media screen and (max-width: 1280px) {
+  body {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  body {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    width: 100%;
+  }
+}
+

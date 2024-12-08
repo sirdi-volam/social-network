@@ -1,0 +1,110 @@
+@use '../../styles/variables' as vars;
+
+.aside-container {
+  font-family: vars.$font-family;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: vars.$text-color;
+  overflow: auto;
+  position: sticky;
+  position: -webkit-sticky;
+  z-index: 9;
+  top: 50px;
+  width: vars.$aside-width;
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.about-button {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.about-button > button {
+  width: 120px;
+  height: 40px;
+  border: none;
+  border-radius: 25px;
+  color: vars.$text-color;
+}
+
+.myWork_btn {
+  box-shadow: 0px 7px 17px -10px rgba(242, 63, 63, 0.2);
+  background: rgb(237, 48, 36);
+
+  &:hover {
+    box-shadow: 0px 10px 25px -1px rgba(245, 33, 33, 1.35);
+  }
+}
+
+.sendMe_btn {
+  box-shadow: 5px 7px 17px -10px rgba(32, 84, 219, 0.35);
+  background: rgb(49, 55, 201);
+
+  &:hover {
+    box-shadow: 5px 10px 25px -1px rgba(32, 84, 219, 1.35);
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 25px;
+
+  &:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 66, 66);
+    border-radius: 5px;
+  }
+}
+
+.nav-item__icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  color: vars.$text-color-gray;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgb(200, 200, 200);
+  text-decoration: none;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 480px) {
+}

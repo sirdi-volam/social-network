@@ -1,0 +1,23 @@
+@use '../styles/variables' as vars;
+
+.layout {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1280px;
+  min-height: calc(100vh - 50px);
+}
+
+.outlet {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  height: 100%;
+}
