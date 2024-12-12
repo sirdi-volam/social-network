@@ -2,6 +2,7 @@ import './Header.scss';
 import { Link } from "react-router-dom";
 import logo from '../../../public/ainai.png'
 import avatar from '../../assets/avatar/unnamed.jpg'
+import ProfileDropdown from './ProfileDropdown/ProfileDropdown';
 
 
 const Header = () => {
@@ -38,7 +39,7 @@ const Header = () => {
               <div className="header-nav-left__search" >
                 <div className="header-nav-left__search_icon">
                   <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" fill="currentColor" viewBox="0 0 48 48">
-                    <path fill="currentColor" d="M 20.5 6 C 12.515556 6 6 12.515562 6 20.5 C 6 28.484438 12.515556 35 20.5 35 C 23.773158 35 26.788919 33.893018 29.220703 32.050781 L 38.585938 41.414062 A 2.0002 2.0002 0 1 0 41.414062 38.585938 L 32.050781 29.220703 C 33.893017 26.788918 35 23.773156 35 20.5 C 35 12.515562 28.484444 6 20.5 6 z M 20.5 10 C 26.322685 10 31 14.677319 31 20.5 C 31 23.295711 29.914065 25.820601 28.148438 27.697266 A 2.0002 2.0002 0 0 0 27.701172 28.144531 C 25.824103 29.912403 23.29771 31 20.5 31 C 14.677315 31 10 26.322681 10 20.5 C 10 14.677319 14.677315 10 20.5 10 z"></path>
+                    <path fill="currentColor" d="M 20.5 6 C 12.515556 6 6 12.515562 6 20.5 C 6 28.484438 12.515556 35 20.5 35 C 23.773158 35 26.788919 33.893018 29.220703 32.050781 L 38.585938 41.414062 A 2.0002 2.0002 0 1 0 41.414062 38.585938 L 32.050781 29.220703 C 33.893017 26.788918 35 23.773156 35 20.5 C 35 12.515562 28.484444 6 20.5 6 z M 20.5 10 C 26.322685 10 31 14.677319 31 20.5 C 31 23.295711 29.914065 25.820601 28.148438 27.697266 A 2.0002 2.0002 0 0 0 27.701172 28.144531 C 25.824103 29.912403 23.29771 31 20.5 31 C 14.677315 31 10 26.322681 10 20.5 C 10 14.677319 14.677315 10 20.5 10 z" fillRule='evenodd'></path>
                   </svg>
                 </div>
                 <input type="search" placeholder="Поиск..." className="header-nav-left__search_input" />
@@ -67,44 +68,7 @@ const Header = () => {
                       </div>
                     </Link>
                   </div>
-                  <div className="header-nav-right__items-profile">
-                    <div className="header-nav-right__items-profile__link">
-                      <div className="header-nav-right__items-profile__avatar">
-                        <img src={avatar} alt="avatar" className="avatar-img"></img>
-                      </div>
-                      <div className="header-nav-right__items-avatar__profileArrow">
-                        <svg fill="none" height="8" viewBox="0 0 12 8" width="12" xmlns="http://www.w3.org/2000/svg">
-                          <path clipRule="evenodd" d="M2.16 2.3a.75.75 0 0 1 1.05-.14L6 4.3l2.8-2.15a.75.75 0 1 1 .9 1.19l-3.24 2.5c-.27.2-.65.2-.92 0L2.3 3.35a.75.75 0 0 1-.13-1.05z" fill="currentColor" fillRule="evenodd">
-                          </path>
-                        </svg>
-                        <div className="header-nav-right__items-profile__dropdown" >
-                          <ul
-                            className="header-nav-right__items-profile__dropdown-list" >
-                            <li className="header-nav-right__items-profile__dropdown-item">
-                              <Link to="/profile">
-                                Профиль
-                              </Link>
-                            </li>
-                            <li className="header-nav-right__items-profile__dropdown-item">
-                              <Link to="/profile/settings">
-                                Настройки
-                              </Link>
-                            </li>
-                            <li className="header-nav-right__items-profile__dropdown-item">
-                              <Link to="/profile/theme">
-                                Тема
-                              </Link>
-                            </li>
-                            <li className="header-nav-right__items-profile__dropdown-item">
-                              <Link to="/auth/logout">
-                                Выход
-                              </Link>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <ProfileDropdown />
                 </div>
               </ul>
             ) : (

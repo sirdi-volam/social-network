@@ -45,6 +45,12 @@
     width: 50px;
     padding-top: 5px;
   }
+
+  &:hover {
+    color: vars.$text-color;
+    transition: all 1s ease;
+    transform: scale(1.2);
+  }
 }
 
 .logo-text {
@@ -55,8 +61,6 @@
 
   &:hover {
     color: vars.$text-color;
-    transition: all 1s ease;
-    transform: scale(1.2);
   }
 }
 
@@ -73,7 +77,9 @@
   &:hover {
     background: rgb(66, 66, 66);
     color: vars.$text-color;
-    transition: all 1s ease;
+    transition: all 0.5s ease;
+    transform: scale(1.2);
+    border-radius: 4px;
   }
 }
 
@@ -82,6 +88,12 @@
   align-items: center;
   color: vars.$text-color-gray;
   padding-left: 10px;
+
+  svg:hover {
+    color: vars.$text-color;
+    transition: all 0.5s ease;
+    transform: scale(1.1);
+  }
 }
 
 .header-nav-left__search_input {
@@ -138,8 +150,10 @@
   height: 100%;
 
   &:hover {
+    background: rgb(66, 66, 66);
     color: vars.$text-color;
-    transition: all 1s ease;
+    transition: all 0.5s ease;
+    border-radius: 4px;
   }
 }
 
@@ -152,8 +166,10 @@
   height: 100%;
 
   &:hover {
+    background: rgb(66, 66, 66);
     color: vars.$text-color;
-    transition: all 1s ease;
+    transition: all 0.5s ease;
+    border-radius: 4px;
   }
 }
 
@@ -169,7 +185,8 @@
   &:hover {
     background: rgb(66, 66, 66);
     color: vars.$text-color;
-    transition: all 1s ease;
+    transition: all 0.5s ease;
+    border-radius: 4px;
   }
 }
 
@@ -221,39 +238,6 @@
   &:hover {
     color: vars.$text-color;
   }
-}
-
-.header-nav-right__items-profile__dropdown {
-  color: vars.$text-color-gray;
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  position: absolute;
-  top: 48px;
-  right: 0;
-  background: rgb(32, 32, 32);
-  border-radius: 8px;
-  box-shadow: 0px 15px 25px 0px rgba(0, 0, 0, 0.95);
-  padding: 10px;
-  min-width: 160px;
-  z-index: 1;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s ease;
-}
-
-.header-nav-right__items-profile__dropdown__item {
-  display: block;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 48px;
-  padding: 0 10px;
-  cursor: pointer;
-}
-
-.show {
-  display: block;
 }
 
 .header-nav-right__items_login {
