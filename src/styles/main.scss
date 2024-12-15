@@ -2,32 +2,204 @@
 @use './mixins';
 @use './variables' as vars;
 
+
+// body {
+//   font-family: vars.$font-family;
+//   display: flex;
+//   flex-direction: column;
+//   margin: 0 auto;
+//   width: 100%;
+//   transition: background 0.3s ease, color 0.3s ease;
+
+//   // Базовые цвета для тела
+//   background: vars.$background-default;
+//   color: vars.$text-color-gray;
+
+//   &.no-transition {
+//     transition: none; // Убирает анимацию при первой загрузке
+//   }
+// }
+
+// /* Темная тема */
+// body[data-theme="dark"] {
+//   background: vars.$background-dark; // Используем переменную для темного фона
+//   color: vars.$text-color-light;
+
+//   a {
+//     color: vars.$link-color-dark;
+
+//     &:hover {
+//       color: vars.$link-hover-dark;
+//     }
+//   }
+
+//   button {
+//     background: vars.$button-bg-dark;
+//     color: vars.$button-text-dark;
+
+//     &:hover {
+//       background: vars.$button-hover-bg-dark;
+//       color: vars.$button-hover-text-dark;
+//     }
+//   }
+// }
+
+// /* Светлая тема */
+// body[data-theme="light"] {
+//   background: vars.$background-light; // Используем переменную для светлого фона
+//   color: vars.$text-color-dark;
+
+//   a {
+//     color: vars.$link-color-light;
+
+//     &:hover {
+//       color: vars.$link-hover-light;
+//     }
+//   }
+
+//   button {
+//     background: vars.$button-bg-light;
+//     color: vars.$button-text-light;
+
+//     &:hover {
+//       background: vars.$button-hover-bg-light;
+//       color: vars.$button-hover-text-light;
+//     }
+//   }
+// }
+
+// // Общие стили для ссылок
+// a {
+//   text-decoration: none;
+//   cursor: pointer;
+//   font-family: vars.$font-family-cursive !important;
+
+//   &:hover {
+//     transition: color 0.3s ease;
+//   }
+// }
+
+// // Общие стили для кнопок
+// button {
+//   border: none;
+//   padding: 0.5em 1em;
+//   border-radius: vars.$border-radius;
+//   font-family: vars.$font-family;
+//   cursor: pointer;
+//   transition: all 0.3s ease;
+
+//   &:hover {
+//     transform: translateY(-2px);
+//   }
+// }
+
+
+// Базовые стили
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-body {
-  font-family: vars.$font-family;
-  background: rgb(24, 24, 24);
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 100%;
-  color: vars.$text-color-gray;
-  
+html, body {
+  font-family: verdana, sans-serif; // Шрифт, напоминающий MDN
+  line-height: 1.6;
+  background-color: vars.$background-default; // Основной фон
+  color: vars.$text-color-gray; // Основной текст
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+// Темная тема
+body[data-theme="dark"] {
+  background-color: vars.$background-dark;
+  color: vars.$text-color-light;
+
+  a {
+    font-family: vars.$font-family-cursive;
+    color: vars.$link-color-gray;
+
+    &:hover {
+      color: vars.$link-hover-dark;
+      text-decoration: underline;
+    }
+  }
+
+  aside-container {
+    background: vars.$aside-bg-color;
+  }
+}
+
+// Светлая тема
+body[data-theme="light"] {
+  background-color: vars.$background-light;
+  color: vars.$text-color-dark;
+
+  a {
+    color: vars.$link-color-light;
+
+    &:hover {
+      background: vars.$link-text-color-light;
+      color: vars.$link-hover-light;
+      text-decoration: underline;
+    }
+  }
+
+  #aside {
+    background: vars.$background-default;
+  }
+}
+
+// Стили ссылок
 a {
-  color: vars.$text-color-gray;
+  color: vars.$link-color-gray;
   text-decoration: none;
+  font-weight: 500;
   cursor: pointer;
-  font-family: vars.$font-family-cursive !important;
+  transition: color 0.3s ease;
 
   &:hover {
-    color: vars.$text-color;
-    transition: all 0.5s ease;
+    text-decoration: underline;
+    color: vars.$text-color; // Подчеркнутый цвет текста
+  }
+}
+
+// Заголовки
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+  color: inherit;
+}
+
+// Кнопки
+button {
+  font-family: inherit;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  background-color: vars.$button-bg-light;
+  color: vars.$button-text-light;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: vars.$button-hover-bg-light;
+    color: vars.$button-hover-text-light;
+  }
+
+  &:focus {
+    outline: 2px solid vars.$link-color-light;
+  }
+}
+
+// Темная тема для кнопок
+body[data-theme="dark"] button {
+  background-color: vars.$button-bg-dark;
+  color: vars.$button-text-dark;
+
+  &:hover {
+    background-color: vars.$button-hover-bg-dark;
+    color: vars.$button-hover-text-dark;
   }
 }

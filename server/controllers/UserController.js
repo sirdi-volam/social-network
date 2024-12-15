@@ -3,6 +3,14 @@ import bcrypt from "bcrypt";
 import prisma from "../prisma/prisma.js";
 
 
+// Настройки для cookies
+const COOKIE_OPTIONS = {
+  httpOnly: true, // Cookie доступен только серверу
+  secure: process.env.NODE_ENV === "production", // Устанавливаем true для HTTPS в продакшене
+  sameSite: "Strict", // Защита от CSRF
+  maxAge: 30 * 24 * 60 * 60 * 1000, // Срок действия cookie — 30 дней
+};
+
 // Регистрация пользователя
 export const register = async (req, res) => {
   try {
@@ -33,6 +41,9 @@ export const register = async (req, res) => {
     );
 
     const { passwordHash, ...userData } = user;
+
+    // Устанавливаем cookie
+    res.cookie("authToken", token, COOKIE_OPTIONS);
 
     res.json({
       ...userData,
@@ -87,9 +98,16 @@ export const login = async (req, res) => {
 
     const { passwordHash, ...userData } = user;
 
+    // Устанавливаем cookie
+    res.cookie("authToken", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "Strict", // None для тестирования
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+    });
+
     res.json({
-      ...userData,
-      token,
+      ...userData
     });
   } catch (err) {
     console.log(err);
@@ -99,16 +117,42 @@ export const login = async (req, res) => {
   }
 }
 
+// Выход пользователя
+export const logout = (req, res) => {
+  try {
+    // Удаляем cookie
+    res.clearCookie("authToken", COOKIE_OPTIONS);
+
+    res.json({
+      message: "Вы вышли из системы",
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      message: "Не удалось выйти",
+    });
+  }
+};
+
 
 // Получение информации о пользователе
 export const getMe = async (req, res) => {
   try {
-    const userId = req.userId;
+    const token = req.cookies.authToken;
+
+    if (!token) {
+      return res.status(401).json({
+        message: "Нет доступа",
+      });
+    }
+
+    // Проверяем и декодируем токен
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // Ищем пользователя по id
     const user = await prisma.user.findUnique({
       where: {
-        id: userId,
+        id: decoded._id,
       },
     });
 

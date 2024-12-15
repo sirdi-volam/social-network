@@ -4,9 +4,28 @@
   display: flex;
   width: 100%;
   margin: 0 auto;
+  color: vars.$text-color-main;
+  font-family: vars.$font-family;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
 }
 
 .home-main {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .home-main {
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .home {
+    font-size: 1rem;
+    line-height: 16px;
+  }
+  
 }
