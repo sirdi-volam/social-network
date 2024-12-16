@@ -2,72 +2,62 @@ import React, { useState, useEffect } from "react";
 import "./ThemeDropdown.scss";
 
 const ThemeDropdown = () => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false)
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
-  // Функция для переключения состояния меню
-    const toggleDropdown = () => {
-      setDropdownOpen(!isDropdownOpen);
-    };
-  
-    // Функция для закрытия меню при клике вне компонента
-    const closeDropdown = () => {
-      setDropdownOpen(false);
-    };
-    
-    useEffect(() => {
-      const handleClickOutside = (event) => {
-        if (!event.target.closest(".header-nav-right__items-profile")) {
-          closeDropdown();
-        }
-      };
-      document.addEventListener("click", handleClickOutside);
-      return () => {
-        document.removeEventListener("click", handleClickOutside);
-      };
-    }, [isDropdownOpen]);
-  
-    const handleDropdownClick = (e) => e.stopPropagation();
-
-  const [currentTheme, setCurrentTheme] = useState(
-    localStorage.getItem("theme") || "system"
-  );
-
-  // Функция для применения темы
-  const applyTheme = (theme) => {
-    if (theme === "system") {
-      document.body.removeAttribute("data-theme");
-    } else {
-      document.body.setAttribute("data-theme", theme);
-    }
+  // Получение сохранённой темы или системной по умолчанию
+  const getInitialTheme = () => {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+    console.log("Initial theme detected:", initialTheme);
+    return initialTheme;
   };
 
-  // Функция для обновления темы
+  const [currentTheme, setCurrentTheme] = useState(getInitialTheme);
+
+  const applyTheme = (theme) => {
+    console.log("Applying theme:", theme);
+    document.documentElement.setAttribute("data-theme", theme);
+    document.body.setAttribute("data-theme", theme);
+  };
+
   const updateTheme = (theme) => {
+    console.log("Updating theme to:", theme);
     setCurrentTheme(theme);
     localStorage.setItem("theme", theme);
     applyTheme(theme);
   };
 
   useEffect(() => {
-    // Устанавливаем начальную тему при загрузке
+    console.log("Applying theme on mount:", currentTheme);
     applyTheme(currentTheme);
-  }, [currentTheme]);
+  }, []); // Применение при монтировании
+
+  useEffect(() => {
+    console.log("Theme updated in state:", currentTheme);
+    applyTheme(currentTheme);
+  }, [currentTheme]); // Применение при изменении темы
 
   return (
-    <div 
-      className="theme-dropdown"
-      role='button'
-      aria-haspopup="true"
-      aria-expanded={isDropdownOpen}
-      tabIndex={0}
-    >
-      <div className="theme-dropdown__current"
-      onClick={toggleDropdown}
+    <div className="theme-dropdown">
+      <div
+        className="theme-dropdown__current"
+        onClick={() => setDropdownOpen((prev) => !prev)}
+        role="button"
+        aria-haspopup="true"
+        aria-expanded={isDropdownOpen}
+        tabIndex={0}
       >
-        <span> {currentTheme === "system" ? "Системная" : currentTheme === "dark" ? "Тёмная" : "Светлая"}</span>
+        <span>
+          {currentTheme === "system"
+            ? "Системная"
+            : currentTheme === "dark"
+              ? "Тёмная"
+              : "Светлая"}
+        </span>
       </div>
       {isDropdownOpen && (
-        <div className="theme-dropdown__options" onClick={handleDropdownClick}>
+        <div className="theme-dropdown__options">
           <button onClick={() => updateTheme("light")}>Светлая</button>
           <button onClick={() => updateTheme("dark")}>Тёмная</button>
           <button onClick={() => updateTheme("system")}>Системная</button>
