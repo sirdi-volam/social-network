@@ -7,6 +7,7 @@ const ThemeIcon = ({size = 20, color = "currentColor", className}) => (
     viewBox="0 0 24 24"
     width={size}
     xmlns="http://www.w3.org/2000/svg"
+    className={className}
   >
   <path
     clipRule="evenodd"

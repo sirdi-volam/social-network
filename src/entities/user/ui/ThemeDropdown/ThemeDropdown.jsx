@@ -9,14 +9,12 @@ const ThemeDropdown = () => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
-    console.log("Initial theme detected:", initialTheme);
     return initialTheme;
   };
 
   const [currentTheme, setCurrentTheme] = useState(getInitialTheme);
 
   const applyTheme = (theme) => {
-    console.log("Applying theme:", theme);
     document.documentElement.setAttribute("data-theme", theme);
     document.body.setAttribute("data-theme", theme);
   };
@@ -29,12 +27,10 @@ const ThemeDropdown = () => {
   };
 
   useEffect(() => {
-    console.log("Applying theme on mount:", currentTheme);
     applyTheme(currentTheme);
   }, []); // Применение при монтировании
 
   useEffect(() => {
-    console.log("Theme updated in state:", currentTheme);
     applyTheme(currentTheme);
   }, [currentTheme]); // Применение при изменении темы
 
@@ -58,9 +54,9 @@ const ThemeDropdown = () => {
       </div>
       {isDropdownOpen && (
         <div className="theme-dropdown__options">
-          <button onClick={() => updateTheme("light")}>Светлая</button>
-          <button onClick={() => updateTheme("dark")}>Тёмная</button>
-          <button onClick={() => updateTheme("system")}>Системная</button>
+          <div className="theme-dropdown__options__item" onClick={() => updateTheme("light")}>Светлая</div>
+          <div className="theme-dropdown__options__item" onClick={() => updateTheme("dark")}>Тёмная</div>
+          <div className="theme-dropdown__options__item" onClick={() => updateTheme("system")}>Системная</div>
         </div>
       )}
     </div>

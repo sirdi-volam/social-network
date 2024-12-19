@@ -7,7 +7,9 @@ const SettingsIcon = ({ size = 20, color = "currentColor", className }) => (
     version="1.1"
     viewBox="0 0 8.4666665 8.4666669"
     width={size}
-    xmlns="http://www.w3.org/2000/svg">
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
     <g
       fill={color}
       id="layer1"

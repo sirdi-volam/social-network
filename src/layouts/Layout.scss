@@ -24,15 +24,11 @@
 
 @media screen and (max-width: 768px) {
   .main {
-    flex-direction: column;
+    margin: 0 auto;
   }
 
   .outlet {
     width: 100%;
-  }
-
-  .aside-container {
-    display: none;
   }
 }
 
@@ -45,7 +41,7 @@
     width: 100%;
   }
 
-  .aside-container {
+  .aside {
     display: none;
   }
   

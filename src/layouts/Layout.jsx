@@ -1,14 +1,15 @@
 import { Outlet } from 'react-router-dom'
-import Aside from '../components/Aside/Aside'
 import Header from '../features/header/ui/Header.jsx'
 import './Layout.scss'
+import Aside from '../features/aside/ui/Aside.jsx'
+import { navLinks } from '../features/aside/model/links.js'
 
 const Layout = () => {
   return (
     <div className="layout">
       <Header />
       <main className="main">
-        <Aside />
+        <Aside links={navLinks} />
         <div className="outlet">
           <Outlet />
         </div>
