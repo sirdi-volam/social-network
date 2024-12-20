@@ -1,0 +1,46 @@
+@use '../../../styles/variables' as vars;
+
+.search-bar {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  width: 230px;
+  height: 32px;
+  background: rgb(32, 32, 32);
+  border-radius: 5px;
+  position: relative;
+
+  &__input {
+    border: none;
+    outline: none;
+    background: none;
+    color: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    padding: 0 0 0 36px;
+    position: absolute;
+  }
+
+  &__icon {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    color: vars.$text-color-gray;
+    padding-left: 10px;
+
+    svg:hover {
+      color: vars.$text-color;
+      transition: all 0.5s ease;
+      transform: scale(1.1);
+    }
+  }
+
+  &:hover {
+    background: rgb(66, 66, 66);
+    color: vars.$text-color;
+    transition: all 0.5s ease;
+    transform: scale(1.2);
+    border-radius: 4px;
+  }
+}

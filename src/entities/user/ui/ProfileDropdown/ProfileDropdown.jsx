@@ -59,7 +59,7 @@ const ProfileDropdown = () => {
                 <div className="header-nav-right__items-profile__dropdown-items__link-icon">
                   <UserIcon />
                 </div>
-                Профиль
+                
               </Link>
             </li>
             <li className="header-nav-right__items-profile__dropdown-items">

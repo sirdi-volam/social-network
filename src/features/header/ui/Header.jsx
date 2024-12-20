@@ -4,29 +4,48 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ProfileDropdown from '../../../entities/user/ui/ProfileDropdown';
 import logo from '../../../../public/ainai.png';
+import { SearchBar } from '../../search';
+import './Header.scss';
+import { CreatePostIcon, NotificationIcon } from '../../../shared/icons';
 
 const Header = () => {
   const user = useSelector((state) => state.user.user); // Получаем данные пользователя
 
   return (
     <header className="header">
-      <nav className="header-nav">
-        <Link to="/" className="logo">
-          <img src={logo} alt="logo" />
-          <span>Ainai</span>
-        </Link>
+      <div className="header-wrapper">
+        <nav className="header-nav">
+          <div className="header-nav_left">
+            <Link to="/" className="logo">
+              <img src={logo} alt="logo" />
+              <span className='logo-text'>ainai</span>
+            </Link>
 
-        {user ? (
-          <div className="header-authenticated">
-            <ProfileDropdown />
+            <SearchBar />
           </div>
-        ) : (
-          <div className="header-unauthenticated">
-            <Link to="/login">Вход</Link>
-            <Link to="/register">Регистрация</Link>
-          </div>
-        )}
-      </nav>
+
+          {user ? (
+            <div className="header-authenticated">
+              <Link to="/notifications" className="header-authenticated__icons">
+                <div className="header-authenticated__icons-notification">
+                  <NotificationIcon />
+                </div>
+              </Link>
+              <Link to="/create-post" className="header-authenticated__icons">
+                <div className="header-authenticated__icons-post-create">
+                  <CreatePostIcon />
+                </div>
+              </Link>
+              <ProfileDropdown />
+            </div>
+          ) : (
+            <div className="header-unauthenticated">
+              <Link to="/login" className='header-unauthenticated__login'>Вход</Link>
+              <Link to="/register" className='header-unauthenticated__register'>Регистрация</Link>
+            </div>
+          )}
+        </nav>
+      </div>
     </header>
   );
 };
