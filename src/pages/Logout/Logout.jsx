@@ -2,17 +2,19 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { logout } from '../../model/userSlice';
+import { logout } from '../../entities/user/model/userSlice';
 
-const LogoutButton = () => {
+
+const Logout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(logout());
-    toast.success('Вы вышли из аккаунта', {
-      position: 'bottom-right',
-    });
+
+    localStorage.removeItem('user');
+
+    toast.success('Вы вышли из аккаунта');
     navigate('/');
   };
 
@@ -24,4 +26,4 @@ const LogoutButton = () => {
   )
 };
 
-export default LogoutButton;
+export default Logout;

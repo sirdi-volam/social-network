@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userReducer from '../entities/user/model/userSlice';
+import userReducer, { login } from '../entities/user/model/userSlice';
 import { searchReducer } from '../features/search';
 
 const store = configureStore({
@@ -8,5 +8,10 @@ const store = configureStore({
     search: searchReducer,
   },
 });
+
+const savedUser = localStorage.getItem('user');
+if (savedUser) {
+  store.dispatch(login(JSON.parse(savedUser)));
+}
 
 export default store;

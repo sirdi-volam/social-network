@@ -4,9 +4,12 @@ import avatarImg from '../../../../assets/avatar/unnamed.jpg';
 import './ProfileDropdown.scss';
 import { UserIcon, SettingsIcon, ThemeIcon, LogoutIcon, ProfileArrowIcon } from '../../../../shared/icons';
 import { ThemeDropdown } from '../ThemeDropdown';
-import LogoutButton from '../LogoutButton/LogoutButton';
+import LogoutButton from '../../../../pages/Logout/Logout';
+import { useAuth } from '../../model/useAuth';
+
 
 const ProfileDropdown = () => {
+  const user = useAuth();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
@@ -59,7 +62,8 @@ const ProfileDropdown = () => {
                 <div className="header-nav-right__items-profile__dropdown-items__link-icon">
                   <UserIcon />
                 </div>
-                
+                Профиль
+                {user?.name}                
               </Link>
             </li>
             <li className="header-nav-right__items-profile__dropdown-items">
@@ -83,7 +87,7 @@ const ProfileDropdown = () => {
                 <div className="header-nav-right__items-profile__dropdown-items__link-icon">
                   <LogoutIcon />
                 </div>
-                  <LogoutButton />
+                <LogoutButton />
               </div>
             </li>
           </ul>

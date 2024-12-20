@@ -1,15 +1,15 @@
 // Header.jsx
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ProfileDropdown from '../../../entities/user/ui/ProfileDropdown';
 import logo from '../../../../public/ainai.png';
 import { SearchBar } from '../../search';
 import './Header.scss';
 import { CreatePostIcon, NotificationIcon } from '../../../shared/icons';
+import { useAuth } from '../../../entities/user/model/useAuth';
 
 const Header = () => {
-  const user = useSelector((state) => state.user.user); // Получаем данные пользователя
+  const user = useAuth();  
 
   return (
     <header className="header">

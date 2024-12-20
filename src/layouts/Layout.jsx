@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom'
-import Header from '../features/header/ui/Header.jsx'
 import './Layout.scss'
-import Aside from '../features/aside/ui/Aside.jsx'
+import Header from '../features/header/ui/Header'
+import Aside from '../features/aside/ui/Aside'
 import { navLinks } from '../features/aside/model/links.js'
 
 const Layout = () => {

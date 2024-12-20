@@ -1,5 +1,5 @@
 import { logout } from '../../../shared/api/user/logout';
-import { logoutUser } from './userSlice';
+import { logoutUser } from './actions';
 
 export const performLogout = () => async (dispatch) => {
   try {
