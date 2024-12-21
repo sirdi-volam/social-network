@@ -1,31 +1,36 @@
 @use '../../styles/variables' as vars;
+@use '../../styles/theme' as t;
 
 .home {
   display: flex;
   width: 100%;
   margin: 0 auto;
-  color: vars.$text-color-main;
+  padding-top: 20px;
   font-family: vars.$font-family;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
-}
 
-.home-main {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  &-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  @include t.theme('light');
+
+  &[data-theme='dark'] {
+    @include t.theme('dark');
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .home-main {
-    padding: 20px;
-    gap: 10px;
-  }
-
   .home {
     font-size: 1rem;
     line-height: 16px;
+
+    &-main {
+      padding: 20px;
+      gap: 10px;
+    }
   }
-  
 }

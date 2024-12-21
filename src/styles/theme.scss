@@ -1,0 +1,248 @@
+@use './variables' as vars;
+
+@mixin theme($theme) {
+  @if $theme == 'light' {
+    background-color: vars.$background-default;
+    color: vars.$text-color-light;
+
+    a {
+      color: vars.$link-color-light;
+
+      &:hover {
+        color: vars.$link-hover-light;
+      }
+    }
+
+    .main {
+      background: vars.$background-default;
+    }
+
+    .outlet {
+      background: vars.$background-default;
+    }
+
+    .header {
+      background: vars.$background-default;
+
+      &-nav {
+        &_left {
+          &__logo {
+            color: vars.$text-color-gray;
+
+            &-text {
+              color: vars.$text-color-gray;
+
+              &:hover {
+                color: vars.$link-hover-light;
+              }
+            }
+
+            &:hover {
+              color: vars.$link-hover-light;
+            }
+          }
+        }
+
+        &-right__items-profile {
+          &__dropdown {
+            background: vars.$background-default;
+            color: vars.$link-color-light;
+
+            &-items {
+              &:hover {
+                background: vars.$link-background-default;
+                color: vars.$link-hover-light;
+
+                svg {
+                  color: vars.$link-hover-light;
+                }
+              }
+            }
+          }
+
+          &__link {
+            color: vars.$link-color-light;
+
+            &:hover {
+              color: vars.$link-hover-light;
+              background: vars.$link-background-default;
+
+              .header-nav-right__items-profile__dropdown-items__link-icon {
+                color: vars.$text-color-light;
+              }
+            }
+
+            &:focus-visible {
+              outline: 2px solid vars.$text-color-gray;
+            }
+
+            &-icon {
+              color: vars.$text-color-gray;
+
+              & > div {
+                color: vars.$text-color-gray;
+              }
+            }
+          }
+
+          &__avatar {
+            &:hover {
+              color: vars.$link-hover-light;
+            }
+          }
+
+          &:hover {
+            background: vars.$link-background-default;
+          }
+        }
+
+        &-right__items-avatar__profileArrow {
+          color: vars.$text-color-gray;
+          &:hover {
+            color: vars.$link-hover-light;
+          }
+        }
+      }
+
+      &-authenticated {
+        &__icons {
+          &-notification {
+            color: vars.$text-color-gray;
+            &:hover {
+              background: vars.$link-background-default;
+              color: vars.$link-hover-light;
+            }
+          }
+
+          &-post-create {
+            color: vars.$text-color-gray;
+            &:hover {
+              background: vars.$link-background-default;
+              color: vars.$link-hover-light;
+            }
+          }
+
+          &:hover, &:target {
+            background: vars.$link-background-default;
+            color: vars.$link-hover-light;
+          }
+        }
+      }
+
+      &-unauthenticated {
+        &__login {
+          color: vars.$text-color-gray;
+          &:hover {
+            background: vars.$link-background-default;
+            color: vars.$link-hover-light;
+          }
+        }
+
+        &__register {
+          color: vars.$text-color-gray;
+          &:hover {
+            background: vars.$link-background-default;
+            color: vars.$link-hover-light;
+          }
+        }
+      }
+    }
+
+    .search-bar {
+      background: vars.$link-background-default;
+      color: vars.$text-color-dark;
+
+      &__input {
+        &::placeholder {
+          color: vars.$text-color-gray;
+        }
+      }
+
+      &__icon {
+        color: vars.$link-color-light;
+
+        svg:hover {
+          color: vars.$link-hover-light;
+        }
+      }
+
+      &:hover {
+        background: vars.$link-background-default;
+        color: vars.$text-color-dark;
+      }
+    }
+
+    .aside {
+      background: vars.$background-default;
+
+      &__link {
+        &:hover {
+          color: vars.$link-hover-light;
+          background: vars.$link-background-default;
+
+          svg {
+            color: vars.$link-hover-light;
+          }
+        }
+      }
+    }
+
+    .card {
+      background: vars.$background-default;
+    }
+
+    .logout-btn {
+      &__icon {
+        color: vars.$text-color-gray;
+
+        &:hover {
+          color: vars.$link-hover-light;
+        }
+      }
+
+      &__button {
+        color: vars.$link-color-light;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &:hover {
+        background: vars.$link-background-default;
+      }
+    }
+
+    .theme-dropdown {
+      &__options {
+        background: vars.$background-default;
+
+        &__item {
+          background: vars.$background-default;
+          color: vars.$link-color-light;
+
+          &-icon {
+            color: vars.$text-color-gray;
+          }
+
+          &:hover {
+            color: vars.$link-hover-light;
+            background: vars.$link-background-default;
+
+            svg {
+              color: vars.$link-hover-light;
+            }
+          }
+        }
+      }
+    }
+
+  } @else if $theme == 'dark' {
+    background-color: vars.$background-default;
+    color: vars.$text-color-dark;
+
+    a {
+      color: vars.$link-color-dark;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ThemeDropdown.scss";
+import { DarkThemeIcon, LightThemeIcon, SystemThemeIcon } from '../../../../shared/icons';
 
 const ThemeDropdown = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -20,7 +21,6 @@ const ThemeDropdown = () => {
   };
 
   const updateTheme = (theme) => {
-    console.log("Updating theme to:", theme);
     setCurrentTheme(theme);
     localStorage.setItem("theme", theme);
     applyTheme(theme);
@@ -54,9 +54,21 @@ const ThemeDropdown = () => {
       </div>
       {isDropdownOpen && (
         <div className="theme-dropdown__options">
-          <div className="theme-dropdown__options__item" onClick={() => updateTheme("light")}>Светлая</div>
-          <div className="theme-dropdown__options__item" onClick={() => updateTheme("dark")}>Тёмная</div>
-          <div className="theme-dropdown__options__item" onClick={() => updateTheme("system")}>Системная</div>
+          <div className="theme-dropdown__options__item" onClick={() => updateTheme("light")}>
+            <div className="theme-dropdown__options__item-icon">
+              <LightThemeIcon />
+            </div>
+            Светлая</div>
+          <div className="theme-dropdown__options__item" onClick={() => updateTheme("dark")}>
+            <div className="theme-dropdown__options__item-icon">
+              <DarkThemeIcon />
+            </div>
+            Тёмная</div>
+          <div className="theme-dropdown__options__item" onClick={() => updateTheme("system")}>
+            <div className="theme-dropdown__options__item-icon">
+              <SystemThemeIcon />
+            </div>
+            Системная</div>
         </div>
       )}
     </div>

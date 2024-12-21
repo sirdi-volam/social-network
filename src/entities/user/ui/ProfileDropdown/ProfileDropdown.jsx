@@ -63,7 +63,7 @@ const ProfileDropdown = () => {
                   <UserIcon />
                 </div>
                 Профиль
-                {user?.name}                
+                {user?.name}
               </Link>
             </li>
             <li className="header-nav-right__items-profile__dropdown-items">
@@ -79,16 +79,11 @@ const ProfileDropdown = () => {
                 <div className="header-nav-right__items-profile__dropdown-items__link-icon">
                   <ThemeIcon />
                 </div>
-                Тема: <ThemeDropdown />
+                Тема: <div className='header-nav-right__items-profile__dropdown-items__link-theme'><ThemeDropdown /></div>
               </div>
             </li>
             <li className="header-nav-right__items-profile__dropdown-items">
-              <div className="header-nav-right__items-profile__dropdown-items__button">
-                <div className="header-nav-right__items-profile__dropdown-items__link-icon">
-                  <LogoutIcon />
-                </div>
-                <LogoutButton />
-              </div>
+              <LogoutButton />
             </li>
           </ul>
         </div>

@@ -1,12 +1,13 @@
 @use '../../../styles/variables' as vars;
 
+@use '../../../styles/theme' as t;
+
 .search-bar {
   margin: 5px;
   display: flex;
   align-items: center;
   width: 230px;
   height: 32px;
-  background: rgb(32, 32, 32);
   border-radius: 5px;
   position: relative;
 
@@ -26,21 +27,23 @@
     display: flex;
     width: 100%;
     align-items: center;
-    color: vars.$text-color-gray;
     padding-left: 10px;
 
     svg:hover {
-      color: vars.$text-color;
       transition: all 0.5s ease;
       transform: scale(1.1);
     }
   }
 
   &:hover {
-    background: rgb(66, 66, 66);
-    color: vars.$text-color;
     transition: all 0.5s ease;
-    transform: scale(1.2);
+    transform: scale(1.1);
     border-radius: 4px;
+  }
+
+  @include t.theme('light');
+
+  &[data-theme='dark'] {
+    @include t.theme('dark');
   }
 }

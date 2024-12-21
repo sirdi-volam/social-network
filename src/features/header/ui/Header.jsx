@@ -16,9 +16,9 @@ const Header = () => {
       <div className="header-wrapper">
         <nav className="header-nav">
           <div className="header-nav_left">
-            <Link to="/" className="logo">
+            <Link to="/" className="header-nav_left__logo">
               <img src={logo} alt="logo" />
-              <span className='logo-text'>ainai</span>
+              <span className='header-nav_left__logo-text'>ainai</span>
             </Link>
 
             <SearchBar />

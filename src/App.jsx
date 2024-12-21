@@ -11,7 +11,6 @@ const App = () => {
   return (
     <ThemeProvider>
       <Router>
-        <Toaster />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
@@ -19,6 +18,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
         </Routes>
+        <Toaster />
       </Router>
     </ThemeProvider>
   );

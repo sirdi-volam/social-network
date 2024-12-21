@@ -1,1 +1,48 @@
-// Миксины
+@use './variables' as vars;
+
+@mixin theme($theme) {
+  @if $theme == 'light' {
+    background-color: vars.$background-default;
+    color: vars.$text-color-light;
+
+    a {
+      color: vars.$link-color-light;
+    }
+
+    .main {
+      background: vars.$background-default;
+    }
+
+    .outlet {
+      background: vars.$background-default;
+    }
+
+    .header {
+      background: vars.$background-default;
+
+      
+    }
+
+    .aside {
+      background: vars.$background-default;
+
+      &__link svg {
+        &:hover {
+          background: vars.$background-default;
+        }
+      }
+
+    }
+    .card {
+      background: vars.$background-default;
+    }
+
+  } @else if $theme == 'dark' {
+    background-color: vars.$background-default;
+    color: vars.$text-color-dark;
+
+    a {
+      color: vars.$link-color-dark;
+    }
+  }
+}

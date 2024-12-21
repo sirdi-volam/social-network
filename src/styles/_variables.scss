@@ -1,41 +1,42 @@
-// Другие переменные
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 @import url(https://fonts.googleapis.com/css?family=Comfortaa&display=swap);
 
 // Определение переменных
 
-// $font-family: 'Roboto', sans-serif;
 $font-family: verdana, sans-serif;
-$font-family-cursive: 'Comfortaa', cursive;
+$font-family-cursive: 'Comfortaa', cursive !default;
 $bg-color: rgb(24, 24, 24) !default;
 $aside-bg-color: rgb(32, 32, 32) !default;
 $text-color: rgb(255, 255, 255) !default;
 $text-color-main: rgb(202, 203, 206) !default;
 $text-color-gray: rgba(255, 255, 255, 0.6) !default;
 
+// Размеры
+
 $width1280: 1280px !default;
 $width760: 760px !default;
 $width480: 480px !default;
-$aside-width: 165px !default;
+$aside-width: 185px !default;
 $border-radius: 4px;
 
 // Цвета
-$background-default: #f4f4f4;
+
+$background-default: #d5d5d8;
+$link-background-default: #b8b8b8;
 $background-light: #ffffff;
-$background-dark: rgb(24, 24, 24);
+$background-dark:rgb(24, 24, 24);
 
-$text-color-dark: #000000;
-$text-color-gray: rgba(255, 255, 255, 0.6);
-$text-color-light: rgb(255, 255, 255);
+$text-color-dark: #0a0a0a;
+$text-color-gray: #686868;
+$text-color-light: #e9e9e9;
 
-$link-color-light: #007acc;
+$link-color-light: #005ab5;
 $link-text-color-light: #e7e7e7;
-$link-hover-light: #005fa3;
-$link-color-dark: rgba(255, 255, 255, 0.6);
-$link-hover-dark: rgb(255, 255, 255);
+$link-hover-light: #003f8f;
+$link-color-dark: #8ab4f8;
 $link-color-gray: rgba(255, 255, 255, 0.6);
+$link-hover-dark: #5c9ef5;
 
 $button-bg-light: #007acc;
 $button-text-light: #ffffff;
@@ -43,31 +44,6 @@ $button-hover-bg-light: #005fa3;
 $button-hover-text-light: #ffffff;
 
 $button-bg-dark: #424242;
-$button-text-dark: #e0e0e0;
+$button-text-dark: #e5e5e5;
 $button-hover-bg-dark: #5a5a5a;
-$button-hover-text-dark: #ffffff;
-
-// Цвета
-$background-default: #f6f7f8; // Светлый фон по умолчанию
-$background-light: #ffffff;  // Чисто белый фон
-$background-dark: #1e1e1e;   // Темный фон
-
-$text-color-dark: #0a0a0a;   // Глубокий черный текст
-$text-color-gray: #686868;   // Мягкий серый текст
-$text-color-light: #e9e9e9;  // Светло-серый текст
-
-$link-color-light: #005ab5;  // Яркий синий (MDN стиль)
-$link-hover-light: #003f8f;  // Темный синий при наведении
-$link-color-dark: #8ab4f8;   // Светло-синий для темной темы
-$link-color-gray: rgba(255, 255, 255, 0.6);
-$link-hover-dark: #5c9ef5;   // При наведении для темной темы
-
-$button-bg-light: #007acc;   // Синий для кнопок в светлой теме
-$button-text-light: #ffffff; // Белый текст на кнопках в светлой теме
-$button-hover-bg-light: #005fa3; // Темно-синий для кнопок при наведении
-$button-hover-text-light: #ffffff;
-
-$button-bg-dark: #424242;    // Серый фон для кнопок в темной теме
-$button-text-dark: #e5e5e5;  // Светлый текст для кнопок в темной теме
-$button-hover-bg-dark: #5a5a5a; // Темно-серый при наведении
 $button-hover-text-dark: #ffffff;

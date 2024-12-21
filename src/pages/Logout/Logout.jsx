@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { logout } from '../../entities/user/model/userSlice';
 
+import './Logout.scss';
+import { LogoutIcon } from '../../shared/icons';
+
 
 const Logout = () => {
   const dispatch = useDispatch();
@@ -19,10 +22,16 @@ const Logout = () => {
   };
 
   return (
-    <button
-      className='logout-btn'
-      onClick={handleLogout}
-    >Выйти</button>
+    <div className="logout-btn">
+      <div
+        className='logout-btn__button'
+        onClick={handleLogout}
+      >
+        <div className="logout-btn__icon">
+          <LogoutIcon />
+        </div>
+        Выйти</div>
+    </div>
   )
 };
 
